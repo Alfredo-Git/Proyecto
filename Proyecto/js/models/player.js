@@ -53,44 +53,76 @@ function Player(ctx, x, y) {
         this.x += this.vx;
         this.y += this.vy;
 
-  };
+};
   
-  Player.prototype.onKeyEvent = function (event) {
+Player.prototype.onKeyEvent = function (event) {
       
     var state = event.type === 'keydown' ? true : false;
     switch (event.keyCode){
+        
         case KEY_UP:
-            this.movements.up = state;  
-            break;
+            if (this.currentDirection != 'down'){
+            this.movements.up = state;
+            this.currentDirection = 'up';  
+            }
+        break;
+        
         case KEY_DOWN:
-            this.movements.down = state;
-            break;
+            if(this.currentDirection != 'up'){
+                this.movements.down = state;
+                this.currentDirection = 'down';
+            }
+        break;
+
         case KEY_LEFT:
-            this.movements.left = state;
-            break;
+            if (this.currentDirection != 'right') {
+                this.movements.left = state;
+                this.currentDirection = 'left';
+            }
+        break;
+
         case KEY_RIGHT:
-            this.movements.right = state;
-            break;
+            if (this.currentDirection != 'left') {
+                this.movements.right = state;
+                this.currentDirection = 'right'
+            }
+        break;
     }
 
-  }
+}
 
-  Player.prototype.onKeyEvent2 = function (event) {
+Player.prototype.onKeyEvent2 = function (event) {
       
     var state = event.type === 'keydown' ? true : false;
     switch (event.keyCode){
+          
         case KEY_UP2:
-            this.movements.up = state;  
-            break;
+            if (this.currentDirection != 'down'){
+            this.movements.up = state;
+            this.currentDirection = 'up';  
+            }
+        break;
+        
         case KEY_DOWN2:
-            this.movements.down = state;
-            break;
+            if(this.currentDirection != 'up'){
+                this.movements.down = state;
+                this.currentDirection = 'down';
+            }
+        break;
+
         case KEY_LEFT2:
-            this.movements.left = state;
-            break;
+            if (this.currentDirection != 'right') {
+                this.movements.left = state;
+                this.currentDirection = 'left';
+            }
+        break;
+
         case KEY_RIGHT2:
-            this.movements.right = state;
-            break;
+            if (this.currentDirection != 'left') {
+                this.movements.right = state;
+                this.currentDirection = 'right'
+            }
+        break;
     }
 
-  }
+}
