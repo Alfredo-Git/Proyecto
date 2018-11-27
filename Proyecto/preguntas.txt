@@ -1,0 +1,3 @@
+poner limites
+limitar los cambios de direccion
+colisiones

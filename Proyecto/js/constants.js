@@ -5,4 +5,9 @@ var KEY_RIGHT = 39;
 var KEY_DOWN = 40;
 var KEY_LEFT = 37;
 
-var SPEED_MOVE = 1;
+var KEY_UP2 = 87;
+var KEY_RIGHT2 = 68;
+var KEY_DOWN2 = 83;
+var KEY_LEFT2 = 65;
+
+var SPEED_MOVE = 3;

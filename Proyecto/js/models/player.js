@@ -2,11 +2,11 @@ function Player(ctx, x, y) {
     this.ctx = ctx;
     this.x = x || 0;
     this.y = y || 0;
-    this.width = 50;
-    this.height = 50;
+    this.width = 10;
+    this.height = 10;
 
     this.vx = 0;
-    this.vy = 0;
+    this.vy = 0; // put value 3 so it starts going down directly
 
     this.currentDirection = 'down';
 
@@ -20,7 +20,7 @@ function Player(ctx, x, y) {
   
   Player.prototype.draw = function() {
       this.move();
-
+      
       this.ctx.fillRect(
           this.x,
           this.y,
@@ -60,7 +60,7 @@ function Player(ctx, x, y) {
     var state = event.type === 'keydown' ? true : false;
     switch (event.keyCode){
         case KEY_UP:
-            this.movements.up = state;
+            this.movements.up = state;  
             break;
         case KEY_DOWN:
             this.movements.down = state;
@@ -69,6 +69,26 @@ function Player(ctx, x, y) {
             this.movements.left = state;
             break;
         case KEY_RIGHT:
+            this.movements.right = state;
+            break;
+    }
+
+  }
+
+  Player.prototype.onKeyEvent2 = function (event) {
+      
+    var state = event.type === 'keydown' ? true : false;
+    switch (event.keyCode){
+        case KEY_UP2:
+            this.movements.up = state;  
+            break;
+        case KEY_DOWN2:
+            this.movements.down = state;
+            break;
+        case KEY_LEFT2:
+            this.movements.left = state;
+            break;
+        case KEY_RIGHT2:
             this.movements.right = state;
             break;
     }
