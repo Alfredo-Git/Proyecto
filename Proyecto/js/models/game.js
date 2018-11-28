@@ -24,7 +24,7 @@ Game.prototype.start = function() {
                 this.stop();
             }
 
-            // this.clear(); commented to keep the trail
+            this.clear();
             this.draw();
         }.bind(this), DRAW_INTERVAL_MS);
     // }

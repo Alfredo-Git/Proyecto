@@ -2,8 +2,10 @@ function Player(ctx, x, y) {
     this.ctx = ctx;
     this.x = x || 0;
     this.y = y || 0;
-    this.width = 10;
-    this.height = 10;
+    this.width = 3;
+    this.height = 3;
+
+    this.trail = []
 
     this.vx = 0;
     this.vy = 0; // put value 3 so it starts going down directly
@@ -19,6 +21,8 @@ function Player(ctx, x, y) {
 }
   
 Player.prototype.draw = function() {
+    this.trail.push({ x: this.x, y: this.y});
+
     this.move();
       
     this.ctx.fillRect(
@@ -27,6 +31,15 @@ Player.prototype.draw = function() {
         this.width,
         this.height
     )
+
+    this.trail.forEach(function(el) {
+        this.ctx.fillRect(
+            el.x,
+            el.y,
+            this.width,
+            this.height
+        )
+    }.bind(this))
 };
   
 Player.prototype.move = function() {
