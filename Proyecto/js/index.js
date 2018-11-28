@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
-    var game = new Game('my-canvas');
-    game.start();
+    var canvas = document.getElementById('my-canvas')
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    new Game(canvas).start()
 });

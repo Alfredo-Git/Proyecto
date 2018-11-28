@@ -1,91 +1,50 @@
-function Game(canvasId) {
-    this.canvas = document.getElementById(canvasId)
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
-    this.ctx = this.canvas.getContext("2d");
-  
-    document.addEventListener('keydown', this.onKeyEvent.bind(this));
-    document.addEventListener('keyup', this.onKeyEvent.bind(this));
+function Game(canvas) {
+    this.ctx = canvas.getContext("2d");
 
     this.player = new Player(this.ctx, 100, 100);
     this.player2 = new Player(this.ctx, 300, 100);
 
     this.drawIntervalCount = 0;
     this.drawIntervalId = undefined;
+    this.setEvents()
 }
-  
-// var blockMovement = false;
 
-// window.addEventListener('keydown', function(e) {
-//     if (!blockMovement) {
-//         blockMovement = keyDownEventHandler(e, this.player);
-//     }
-// }, true);
-
-// function keyDownEventHandler(e, player) {
-    
-//    var direction = player.currentDirection;
-
-//    switch(e.keyCode){
-//        case player.movements.up:
-//         if (direction !== 'down' && direction !== 'up'){
-//             player.currentDirection = 'up';
-//             return true;
-//         }
-//         break;
-
-//         case player.movements.right:
-//         if (direction !== 'left' && direction !== 'right'){
-//             player.currentDirection = 'right';
-//             return true;
-//         }
-//         break;
-
-//         case player.movements.down:
-//         if (direction !== 'up' && direction !== 'down'){
-//             player.currentDirection = 'down';
-//             return true;
-//         }
-//         break;
-
-//         case player.movements.left:
-//         if (direction !== 'right' && direction !== 'left'){
-//             player.currentDirection = 'left';
-//             return true;
-//         }
-//         break;
-    
-//         default:
-//             break;
-//    }
-
-// }
 
 Game.prototype.start = function() {
-    if (!this.isRunning()){
+    // if (!this.isRunning()){
         this.drawIntervalId = setInterval(function() {
             this.drawIntervalCount++;
         
             if (this.checkGameOver()){
                 this.stop();
-                console.log("terminado");
             
+            }
+
+            if (this.isCollision()){
+                this.stop();
             }
 
             // this.clear(); commented to keep the trail
             this.draw();
-        
         }.bind(this), DRAW_INTERVAL_MS);
-    }
+    // }
 };
   
 Game.prototype.isRunning = function(){
       return this.drawIntervalId !== undefined;
 }
 
+Game.prototype.isCollision = function(){
+    return this.player.x < 0 || this.player.x > window.innerWidth || 
+    this.player.y < 0 || this.player.y > window.innerHeight ||
+    this.player2.x < 0 || this.player2.x > window.innerWidth || 
+    this.player2.y < 0 || this.player2.y > window.innerHeight              
+}
+
 Game.prototype.stop = function(){
       clearInterval(this.drawIntervalId);
       this.drawIntervalId = undefined;
+      alert("san sacabo")
 }
 
 Game.prototype.onKeyEvent = function(event) {
@@ -114,3 +73,8 @@ Game.prototype.gameOver = function() {
 Game.prototype.clear = function() {
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
 };
+
+Game.prototype.setEvents = function() {
+    document.addEventListener('keydown', this.onKeyEvent.bind(this));
+    document.addEventListener('keyup', this.onKeyEvent.bind(this));
+}

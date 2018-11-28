@@ -16,43 +16,43 @@ function Player(ctx, x, y) {
         right: false,
         left: false
     }
-  }
+}
   
-  Player.prototype.draw = function() {
-      this.move();
+Player.prototype.draw = function() {
+    this.move();
       
-      this.ctx.fillRect(
-          this.x,
-          this.y,
-          this.width,
-          this.height
-      )
-  };
+    this.ctx.fillRect(
+        this.x,
+        this.y,
+        this.width,
+        this.height
+    )
+};
   
-  Player.prototype.move = function() {
-        if (this.movements.up){
-            this.vy = -SPEED_MOVE;
-            this.vx = 0;
-        }
+Player.prototype.move = function() {
+    if (this.movements.up){
+        this.vy = -SPEED_MOVE;
+        this.vx = 0;
+    }
 
-      if (this.movements.down){
-            this.vy = SPEED_MOVE;
-            this.vx = 0;
-        }
+    if (this.movements.down){
+        this.vy = SPEED_MOVE;
+        this.vx = 0;
+    }
 
-        if (this.movements.right){
-            this.vx = SPEED_MOVE;
-            this.vy = 0;
-        }
+    if (this.movements.right){
+        this.vx = SPEED_MOVE;
+        this.vy = 0;
+    }
 
-        if (this.movements.left){
-            this.vx = -SPEED_MOVE;
-            this.vy = 0;
-        }
+    if (this.movements.left){
+        this.vx = -SPEED_MOVE;
+        this.vy = 0;
+    }
 
-        this.x += this.vx;
-        this.y += this.vy;
-
+    this.x += this.vx;
+    this.y += this.vy;
+        
 };
   
 Player.prototype.onKeyEvent = function (event) {
