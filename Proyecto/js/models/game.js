@@ -24,7 +24,8 @@ Game.prototype.start = function() {
                 this.stop();
             }
 
-            if(this.player.bodyCollision(this.player2.trail) || this.player2.bodyCollision(this.player.trail)){
+            if(this.player.bodyCollision(this.player2.trail) || this.player2.bodyCollision(this.player.trail) ||
+               this.player.bodyCollision(this.player.trail) || this.player2.bodyCollision(this.player2.trail)){
                 this.stop();
             }
 
