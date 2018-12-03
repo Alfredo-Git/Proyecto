@@ -5,6 +5,9 @@ function Player(ctx, x, y) {
     this.width = 10;
     this.height = 10;
 
+    this.img = new Image();
+    this.img.src = "./images/blue-bike.png"
+
     this.trail = []
 
     this.vx = 0;
@@ -20,17 +23,22 @@ function Player(ctx, x, y) {
     }
 }
   
-Player.prototype.draw = function() {
-    this.trail.push({ x: this.x, y: this.y});
-
-    this.move();
-      
-    this.ctx.fillRect(
+Player.prototype.draw = function(color) {
+    
+    this.ctx.drawImage(
+        this.img,
         this.x,
         this.y,
         this.width,
         this.height
     )
+
+    this.trail.push({ x: this.x, y: this.y});
+
+    this.move();
+      
+
+    this.ctx.fillStyle = color;
 
     this.trail.forEach(function(el) {
         this.ctx.fillRect(
