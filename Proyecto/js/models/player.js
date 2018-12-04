@@ -1,4 +1,4 @@
-function Player(ctx, x, y) {
+function Player(ctx, x, y, imgColor) {
     this.ctx = ctx;
     this.x = x || 0;
     this.y = y || 0;
@@ -6,7 +6,7 @@ function Player(ctx, x, y) {
     this.height = 10;
 
     this.img = new Image();
-    this.img.src = "./images/blue-bike.png"
+    this.img.src = "./images/" + imgColor + "-bike.png"
 
     this.trail = []
 
@@ -25,14 +25,7 @@ function Player(ctx, x, y) {
   
 Player.prototype.draw = function(color) {
     
-    this.ctx.drawImage(
-        this.img,
-        this.x,
-        this.y,
-        this.width,
-        this.height
-    )
-
+   
     this.trail.push({ x: this.x, y: this.y});
 
     this.move();
@@ -48,8 +41,20 @@ Player.prototype.draw = function(color) {
             this.height
         )
     }.bind(this))
+
+    this.ctx.drawImage(
+        this.img,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+    )
+
 };
   
+
+
+
 Player.prototype.move = function() {
     if (this.movements.up){
         this.vy = -SPEED_MOVE;

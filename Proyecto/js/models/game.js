@@ -1,8 +1,8 @@
 function Game(canvas) {
     this.ctx = canvas.getContext("2d");
 
-    this.player = new Player(this.ctx, 1000, 100);
-    this.player2 = new Player(this.ctx, 300, 100);
+    this.player = new Player(this.ctx, 1000, 100, 'Blue');
+    this.player2 = new Player(this.ctx, 300, 100, 'Red');
     
     this.background = new Background(this.ctx);
 
