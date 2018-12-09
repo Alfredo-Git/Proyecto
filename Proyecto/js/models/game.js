@@ -13,8 +13,12 @@ function Game(canvas) {
   this.setEvents();
 }
 
+
+
+
 Game.prototype.start = function() {
-  if (!this.isRunning()) {
+    
+if (!this.isRunning()) {
     this.sounds.play("bike");
     this.sounds.play("song");
 
@@ -83,9 +87,9 @@ Game.prototype.redBorderCollision = function() {
 };
 
 Game.prototype.stop = function() {
-  clearInterval(this.drawIntervalId);
-  this.drawIntervalId = undefined;
-  alert("san sacabó");
+    location.reload();
+    clearInterval(this.drawIntervalId);
+    this.drawIntervalId = undefined;
 };
 
 Game.prototype.onKeyEvent = function(event) {
@@ -99,7 +103,9 @@ Game.prototype.draw = function() {
   this.player2.draw("blue");
 };
 
-Game.prototype.checkGameOver = function() {};
+Game.prototype.checkGameOver = function() {
+    
+};
 
 Game.prototype.gameOver = function() {
   clearInterval(this.intervalId);

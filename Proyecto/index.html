@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tron</title>
 
-    <link type="text/css" rel="stylesheet" href="css/main.css?14042012">
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <script src="js/constants.js"></script>
     <script src="js/sounds.js"></script>
@@ -17,9 +19,20 @@
 
 </head>
 <body>
-    <div id = image>
-          <img src ="images/tronbg.jpeg" />
+    <div id = "start-game">
+        <div id = "image">
+            <img src ="images/tronbg.jpeg" />
+        </div>
+
+        <div>
+            <button id = "Start" class = "button start">Start Game?</button>
+        </div>
+
+        <div>
+            <button class = "button high-score">View High Scores</button>
+        </div>
     </div>
+
     <canvas id="my-canvas"></canvas>
 </body>
 </html>
