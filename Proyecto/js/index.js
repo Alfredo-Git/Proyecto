@@ -1,17 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    
-    // var button = document.createElement("button");
-    // button.innerHTML = "Button";
-    
-    // // 2. Append somewhere
-    // var body = document.getElementsByTagName("body")[0];
-    // body.appendChild(button);
-    
-    // // 3. Add event handler
-    // button.addEventListener ("click", function() {
-    //   alert("did something");
-    // });
+ 
+    // var score = getScore();
+    // console.log(score);
 
 
     var start = document.getElementById("Start");
@@ -26,3 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
         game.start();
     })
 }); 
+
+// function getScore() {
+//     var score = localStorage.getItem('score') || '{}';
+//     return JSON.parse(score);
+//   }
+  
+//   function addScore(name, value) {
+//     var score = getScore();
+  
+//     score[name] = value;
+  
+//     localStorage.setItem('score', JSON.stringify(score));
+//   }

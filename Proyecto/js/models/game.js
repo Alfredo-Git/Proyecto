@@ -13,7 +13,13 @@ function Game(canvas) {
   this.setEvents();
 }
 
+// var score = 0;
 
+// function drawScore() {
+//     ctx.font = "16px Arial";
+//     ctx.fillStyle = "#0095DD";
+//     ctx.fillText("Score: "+score, 8, 20);
+// }
 
 
 Game.prototype.start = function() {
@@ -21,10 +27,12 @@ Game.prototype.start = function() {
 if (!this.isRunning()) {
     this.sounds.play("bike");
     this.sounds.play("song");
+    // drawScore();
 
     this.drawIntervalId = setInterval(
       function() {
         this.drawIntervalCount++;
+        // score++;
 
         if (this.checkGameOver() || this.redBorderCollision()) {
           this.stop();
